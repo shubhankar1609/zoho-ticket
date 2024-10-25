@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopWorx Ticket Form</title>
     <style>
-        /* Add your custom styles here */
+        /* Your custom styles here */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
-
         .form-container {
             max-width: 600px;
             margin: 50px auto;
@@ -21,86 +20,85 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
-
         .form-container h2 {
             text-align: center;
             color: #333;
         }
-
         .form-container label {
             display: block;
             margin-top: 10px;
             font-weight: bold;
             color: #555;
         }
-
         .form-container input, .form-container textarea, .form-container select {
-            width: 100%;
+            width: calc(100% - 22px); 
             padding: 10px;
             margin-top: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 14px;
         }
-
         .form-container button {
             width: 100%;
             padding: 15px;
-            background-color: #28a745;
+            background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             margin-top: 20px;
         }
-
         .form-container button:hover {
-            background-color: #218838;
+            background-color: #0056b3;
         }
-
         .logo {
             text-align: center;
             margin-bottom: 20px;
         }
-
         .logo img {
             width: 150px;
+            max-width: 100%;
+            height: auto;
         }
-
         .form-description {
             text-align: center;
             margin-bottom: 20px;
             color: #777;
         }
     </style>
+    <script src="https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.36e24db6ecfe6de0dce2.js"></script>
 </head>
 <body>
 
     <div class="form-container">
-        <!-- Add the ShopWorx logo using the GitHub image URL -->
         <div class="logo">
             <img src="https://github.com/shubhankar1609/zoho-ticket/blob/main/images.png?raw=true" alt="ShopWorx Logo">
         </div>
-
         <h2>Raise a Ticket</h2>
-
         <p class="form-description">Please fill out the form below to raise a ticket.</p>
+        
+        <!-- Start of Zoho's Web Form -->
+        <form name="zsWebToCase_641008000019152001" id="zsWebToCase_641008000019152001" action="https://desk.zoho.com/support/WebToCase" method="POST" enctype="multipart/form-data" onSubmit="return zsValidateMandatoryFields()">
+            <input type="hidden" name="xnQsjsdp" value="edbsn5c006843b5d7020b8e1a03d03bb2ab2a"/>
+            <input type="hidden" name="xmIwtLD" value="edbsn75ccf7b957f6d134699eab07dfe5459d61df131bd8cd5936f330b091c0e038f1"/>
+            <input type="hidden" name="actionType" value="Q2FzZXM="/>
+            <input type="hidden" name="returnURL" value="https://shopworx.io/"/>
 
-        <!-- Your form code goes here -->
-        <form action="your_form_submission_endpoint" method="POST">
-            <label for="customer-name">Customer Name</label>
-            <input type="text" id="customer-name" name="customer-name" required placeholder="Enter your customer name">
-
-            <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name">
+            <!-- Custom Form Fields -->
+            <label for="first-name">Your Name</label>
+            <input type="text" name="First Name" id="first-name" required placeholder="Enter your first name">
+            
+            <label for="last-name">Last Name</label>
+            <input type="text" name="Contact Name" id="last-name" required placeholder="Enter your last name">
 
             <label for="user-email">Your Email</label>
-            <input type="email" id="user-email" name="user-email" required placeholder="Enter your email address">
+            <input type="email" name="Email" id="user-email" required placeholder="Enter your email address">
 
-            <label for="affected-area">Subject</label>
-            <select id="affected-area" name="affected-area" required>
+            <label for="subject">Subject</label>
+            <select name="Subject" id="subject" required>
                 <option value="">Select a subject</option>
                 <option value="New Request">New Request</option>
                 <option value="Server">Server</option>
@@ -110,11 +108,12 @@
                 <option value="Other">Other</option>
             </select>
 
-            <label for="issue-description">Issue Description</label>
-            <textarea id="issue-description" name="issue-description" rows="4" required placeholder="Describe the issue"></textarea>
+            <label for="description">Issue Description</label>
+            <textarea name="Description" id="description" rows="4" required placeholder="Describe the issue"></textarea>
 
+            <!-- File Attachment -->
             <label for="related-images">Upload Related Images (Optional)</label>
-            <input type="file" id="related-images" name="related-images" accept="image/*">
+            <input type="file" name="attachment_1" id="related-images" accept="image/*" multiple>
 
             <button type="submit">Submit Ticket</button>
         </form>
@@ -122,3 +121,4 @@
 
 </body>
 </html>
+
